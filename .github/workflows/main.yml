@@ -6,8 +6,12 @@ on:
       - master
 
 jobs:
+  
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      
     steps:
       - uses: actions/checkout@v4
 
@@ -21,6 +25,11 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
