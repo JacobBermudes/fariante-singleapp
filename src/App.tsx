@@ -6,6 +6,7 @@ import AboutContent from './AboutContent';
 import NewsContent from './NewsContent';
 import ContactsContent from './ContactsContent';
 import CatalogContent from './CatalogContent';
+import ProductCard from './ProductCard';
 
 const SECTIONS = [
   { key: 'about', label: 'О нас' },
@@ -67,6 +68,27 @@ function App() {
     }
   };
 
+  const products = [
+    { title: 'Булаковер', description: 'Картинка' },
+    { title: 'Аулоковер', description: 'Картинка' },
+    { title: 'Далоковер', description: 'Картинка' },
+    { title: 'Галоковер', description: 'Картинка' },
+    { title: 'Еулоковер', description: 'Картинка' },
+    { title: 'Сулаковер', description: 'Картинка' },
+    { title: 'Сулакавер', description: 'Картинка' },
+    { title: 'Булаковер', description: 'Картинка' },
+    { title: 'Аулоковер', description: 'Картинка' },
+    { title: 'Далоковер', description: 'Картинка' },
+    { title: 'Галоковер', description: 'Картинка' },
+    { title: 'Еулоковер', description: 'Картинка' },
+    { title: 'Вулаковер', description: 'Картинка' },
+    { title: 'Булаковер', description: 'Картинка' },
+    { title: 'Аулоковер', description: 'Картинка' },
+    { title: 'Далоковер', description: 'Картинка' },
+    { title: 'Галоковер', description: 'Картинка' },
+    { title: 'Еулоковер', description: 'Картинка' },
+  ];
+
   return (
     <>
       <div className="bg" />
@@ -105,6 +127,11 @@ function App() {
               >
                 Двухкомпонентные составы
               </div>
+            </div>
+            <div className="product-list">
+              {products.map((p, i) => (
+                <ProductCard key={i} title={p.title} description={p.description} />
+              ))}
             </div>
           </div>
         </div>
