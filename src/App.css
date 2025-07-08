@@ -45,7 +45,7 @@
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background: url('bg.png') no-repeat center center fixed;
+  background: url('/bg.png') no-repeat center center fixed;
   background-size: cover ;
 }
 
