@@ -12,6 +12,7 @@ const SECTIONS = [
   { key: 'catalog', label: 'Каталог' },
   { key: 'news', label: 'Новости' },
   { key: 'contacts', label: 'Контакты' },
+  { key: 'blur', label: 'Blur Каталога' },
 ] as const;
 
 type SectionKey = typeof SECTIONS[number]['key'];
@@ -19,6 +20,7 @@ type SectionKey = typeof SECTIONS[number]['key'];
 function App() {
   const [clickedSection, setClickedSection] = useState<SectionKey | null>(null);
   const [activeComp, setActiveComp] = useState<number>(0);
+  const [isBlurred, setIsBlurred] = useState(false);
   
   // Обработчик клавиши Escape
   useEffect(() => {
@@ -38,6 +40,10 @@ function App() {
   }, [clickedSection]);
 
   const handleSectionClick = (section: SectionKey) => {
+    if (section === 'blur') {
+      setIsBlurred((prev) => !prev);
+      return;
+    }
     if (section === 'catalog') {
       if (clickedSection) setClickedSection(null);
       // window.open('/catalog', '_blank'); // Если нужно открывать в новой вкладке, раскомментируйте
@@ -75,7 +81,7 @@ function App() {
                   ? !clickedSection || clickedSection === 'catalog'
                   : clickedSection === key
               }
-              onClick={() => handleSectionClick(key)}
+              onClick={() => handleSectionClick(key as SectionKey)}
             />
           ))}
         </div>
@@ -85,7 +91,7 @@ function App() {
             <img src="logoBig.png" />
             Комплексные решения для защиты поверхностей судов и промышленных объектов
           </div>
-          <div className='catalogPort'>
+          <div className='catalogPort' style={isBlurred ? { backdropFilter: 'blur(8px)' } : undefined}>
             <div className="CompOptions">
               <div
                 className={`compSection${activeComp === 0 ? ' active' : ''}`}
