@@ -47,7 +47,6 @@ function App() {
     }
     if (section === 'catalog') {
       if (clickedSection) setClickedSection(null);
-      // window.open('/catalog', '_blank'); // Если нужно открывать в новой вкладке, раскомментируйте
     } else {
       setClickedSection(clickedSection === section ? null : section);
     }
@@ -111,7 +110,7 @@ function App() {
         <div className="mainInfo">
           <div className="coverage-container">
             <div className="coverage-block">
-              <div className="coverage-title">Морские покрытия</div>
+              <div className="coverage-title">Морские покрытия<br /> </div>
               <img src="BeautyProtection.png" alt="Морские покрытия" />
             </div>
             <div className="coverage-block">
