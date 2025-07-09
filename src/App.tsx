@@ -109,8 +109,8 @@ function App() {
         </div>
         {getPopup()}
         <div className="mainInfo">
+          <img src="logoBig.png" style={{ height: '200px' }}/>
           <div className="mainViewTitle">
-            <img src="logoBig.png" />
             Комплексные решения для защиты поверхностей судов и промышленных объектов
           </div>
           <div className='catalogPort' style={isBlurred ? { backdropFilter: 'blur(8px)' } : undefined}>

@@ -72,6 +72,17 @@
   background-size: cover ;
 }
 
+.bg::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255,0.45); /* 0.45 — степень тонировки, можно менять */
+  pointer-events: none;
+  z-index: 1;
+}
+
 .mainView {
   display: flex;
   position: absolute;
@@ -469,7 +480,7 @@
   color: #d1ffe0;
   align-items: center;
   text-align: center;
-  min-width: 20%;
+  width: 20vw;
   min-height: 20vw;
   display: flex;
   flex-direction: column;
