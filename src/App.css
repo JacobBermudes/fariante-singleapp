@@ -1,4 +1,4 @@
-#root {
+by#root {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -523,7 +523,6 @@
   font-weight: 600;
   color: #000000;
   text-align: center;
-  width: 120%;
 }
 
 .coverage-block img {
