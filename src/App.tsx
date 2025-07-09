@@ -109,23 +109,18 @@ function App() {
         </div>
         {getPopup()}
         <div className="mainInfo">
-          <div style={{ display: 'flex', flexDirection:'row'}}>
-          <div style={{ 
-            display: 'flex', 
-            justifyContent: 'space-between', 
-            height: '20vh', 
-            gap: '20px' 
-          }}>
+          <div className="coverage-container">
             <div className="coverage-block">
               <div className="coverage-title">Морские покрытия</div>
               <img src="BeautyProtection.png" alt="Морские покрытия" />
             </div>
-            <img src="logoBig.png" />
+            <div className="coverage-block">
+              <img src="logoBig.png" alt="Логотип" />
+            </div>
             <div className="coverage-block">
               <div className="coverage-title">Промышленные покрытия</div>
               <img src="fireArm.png" alt="Промышленные покрытия" />
             </div>
-          </div>
           </div>
           <div className='catalogPort' style={isBlurred ? { backdropFilter: 'blur(8px)' } : undefined}>
             <div className="CompOptions">
