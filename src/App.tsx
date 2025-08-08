@@ -25,7 +25,7 @@ function App() {
   const [products, setProducts] = useState<{ title: string; description: string }[]>([]);
 
   useEffect(() => {
-    fetch('http://fariante.ru:3210/1cgw/data')
+    fetch('https://fariante.ru:3210/1cgw/data')
       .then((res) => res.json())
       .then((data) => {
         // Предполагаем, что data — массив объектов с нужными полями
