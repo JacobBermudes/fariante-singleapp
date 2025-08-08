@@ -22,7 +22,26 @@ function App() {
   const [clickedSection, setClickedSection] = useState<SectionKey | null>(null);
   const [activeComp, setActiveComp] = useState<number>(0);
   const [isBlurred, setIsBlurred] = useState(false);
-  
+  const [products, setProducts] = useState<{ title: string; description: string }[]>([]);
+
+  useEffect(() => {
+    fetch('http://fariante.ru:3210/1cgw/data')
+      .then((res) => res.json())
+      .then((data) => {
+        // Предполагаем, что data — массив объектов с нужными полями
+        setProducts(
+          data.map((item: any) => ({
+            title: item.title || item.name || 'Без названия',
+            description: item.description || 'Нет описания',
+          }))
+        );
+      })
+      .catch(() => {
+        // fallback или обработка ошибки
+        setProducts([]);
+      });
+  }, []);
+
   // Обработчик клавиши Escape
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
@@ -67,27 +86,6 @@ function App() {
     }
   };
 
-  const products = [
-    { title: 'Булаковер', description: 'Картинка' },
-    { title: 'Аулоковер', description: 'Картинка' },
-    { title: 'Далоковер', description: 'Картинка' },
-    { title: 'Галоковер', description: 'Картинка' },
-    { title: 'Еулоковер', description: 'Картинка' },
-    { title: 'Сулаковер', description: 'Картинка' },
-    { title: 'Сулакавер', description: 'Картинка' },
-    { title: 'Булаковер', description: 'Картинка' },
-    { title: 'Аулоковер', description: 'Картинка' },
-    { title: 'Далоковер', description: 'Картинка' },
-    { title: 'Галоковер', description: 'Картинка' },
-    { title: 'Еулоковер', description: 'Картинка' },
-    { title: 'Вулаковер', description: 'Картинка' },
-    { title: 'Булаковер', description: 'Картинка' },
-    { title: 'Аулоковер', description: 'Картинка' },
-    { title: 'Далоковер', description: 'Картинка' },
-    { title: 'Галоковер', description: 'Картинка' },
-    { title: 'Еулоковер', description: 'Картинка' },
-  ];
-
   return (
     <>
       <div className="bg" />
@@ -110,14 +108,14 @@ function App() {
         <div className="mainInfo">
           <div className="coverage-container">
             <div className="coverage-block">
-              <div className="coverage-title">Морские покрытия<br /> </div>
+              <div className="coverage-title">Морские<br />покрытия</div>
               <img src="BeautyProtection.png" alt="Морские покрытия" />
             </div>
             <div className="coverage-block">
               <img src="logoBig.png" alt="Логотип" />
             </div>
             <div className="coverage-block">
-              <div className="coverage-title">Промышленные покрытия</div>
+              <div className="coverage-title">Промышленные<br />покрытия</div>
               <img src="fireArm.png" alt="Промышленные покрытия" />
             </div>
           </div>
